@@ -27,6 +27,9 @@ func runCommand(command string) {
 		createTask()
 	case "create-category":
 		createCategory()
+	case "login":
+		login()
+
 	case "exit":
 		fmt.Println("see you later ;)")
 		os.Exit(0)
@@ -64,4 +67,19 @@ func createCategory() {
 	color = scanner.Text()
 
 	fmt.Println("Category: ", name, color)
+}
+
+func login() {
+	scanner := bufio.NewScanner(os.Stdin)
+	var name, email string
+
+	fmt.Println("please enter your name")
+	scanner.Scan()
+	name = scanner.Text()
+
+	fmt.Println("please enter your email")
+	scanner.Scan()
+	email = scanner.Text()
+
+	fmt.Printf("welcome %s your Email is : %s \n", name, email)
 }
